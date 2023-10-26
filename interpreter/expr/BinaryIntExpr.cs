@@ -7,7 +7,8 @@ public class BinaryIntExpr : IntExpr
         SUB,
         MUL,
         DIV,
-        MOD
+        MOD,
+        POT
     }
 
     private IntExpr m_left;
@@ -36,6 +37,8 @@ public class BinaryIntExpr : IntExpr
                 return v1 * v2;
             case Op.DIV:
                 return v1 / v2;
+            case Op.POT:
+                return (int)Math.Pow((double)v1, (double)v2);
             case Op.MOD:
             default:
                 return v1 % v2;

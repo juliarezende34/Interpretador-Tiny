@@ -99,7 +99,7 @@ public class LexicalAnalysis : IDisposable
 						state = 4;
 					}
 					else if (c == ';' || c == '+' || c == '-' ||
-							c == '*' || c == '/' || c == '%')
+							c == '*' || c == '/' || c == '%' || c == '^')
 					{
 						lex.token += (char)c;
 						state = 7;

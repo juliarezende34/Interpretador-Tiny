@@ -254,7 +254,7 @@ public class SyntaticAnalysis
             return expr;
         }
     }
-    // <intexpr>   ::= [ + | - ] <intterm> [ (+ | - | * | / | %) <intterm> ]
+    // <intexpr>   ::= [ + | - ] <intterm> [ (+ | - | * | / | % | ^) <intterm> ]
     public IntExpr procIntExpr()
     {
         bool isNegative = false;
@@ -284,7 +284,8 @@ public class SyntaticAnalysis
             m_current.type == TokenType.TT_SUB ||
             m_current.type == TokenType.TT_MUL ||
             m_current.type == TokenType.TT_DIV ||
-            m_current.type == TokenType.TT_MOD)
+            m_current.type == TokenType.TT_MOD ||
+            m_current.type == TokenType.TT_POT)
         {
             int line = m_lex.Line();
 
@@ -305,6 +306,10 @@ public class SyntaticAnalysis
                     break;
                 case TokenType.TT_DIV:
                     op = BinaryIntExpr.Op.DIV;
+                    advance();
+                    break;
+                case TokenType.TT_POT:
+                    op = BinaryIntExpr.Op.POT;
                     advance();
                     break;
                 case TokenType.TT_MOD:

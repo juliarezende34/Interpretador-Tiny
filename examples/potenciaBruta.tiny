@@ -1,0 +1,10 @@
+# primeiro read -> base, segundo read -> expoente
+program
+    a = read;
+    b = read;
+    resultado = 1;
+    while b > 0 do
+        resultado = resultado * a;
+        b = b - 1;
+    done;
+    output resultado;

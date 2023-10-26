@@ -24,6 +24,7 @@ using System;
         TT_MUL,           // *
         TT_DIV,           // /
         TT_MOD,           // %
+        TT_POT,           // ^
 
         // Keywords
         TT_PROGRAM,       // program
@@ -89,6 +90,8 @@ using System;
                     return "DIV";
                 case TokenType.TT_MOD:
                     return "MOD";
+                case TokenType.TT_POT:
+                    return "POT";
 
                 // Keywords
                 case TokenType.TT_PROGRAM:
